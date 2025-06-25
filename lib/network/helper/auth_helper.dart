@@ -11,15 +11,24 @@ abstract class AuthHelper {
   });
 
   // // register request
-  // Future register({
-  //  required Ref ref,
-  //   required String name,
-  //   required String email,
-  //   required String phone,
-  //   required String password,
-  //   required onSuccess,
-  //   required onError,
-  // });
+  Future register({
+    required WidgetRef ref,
+    required String name,
+    required String email,
+    required String phone,
+    required String country,
+    required String password,
+    required onSuccess,
+    required onError,
+  });
+
+  //verify email
+  Future verifyEmail({
+    required WidgetRef ref,
+    required String otp,
+    required onSuccess,
+    required onError,
+  });
 
   // // send otp to reset password
   Future sendOtp({

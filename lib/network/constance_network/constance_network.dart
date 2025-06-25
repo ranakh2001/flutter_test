@@ -5,6 +5,8 @@ import 'package:flutter_test1/features/providers/shared_prefs_provider.dart';
 abstract class ConstanceNetwork {
   static const String baseUrl = 'https://highleveltecknology.com/doos/api/';
   static const String login = 'login';
+  static const String register = 'register';
+  static const String verifyEmail = 'verfiy_email';
   static const String sendOTP = 'sendOTP';
   static const String receiveOTP = 'receiveOTP';
   static const String resetpassword = 'resetpassword';

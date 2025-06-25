@@ -95,4 +95,54 @@ class AuthApi extends AuthHelper {
       return onError(response.data);
     }
   }
+
+  @override
+  Future register({
+    required WidgetRef ref,
+    required String name,
+    required String email,
+    required String phone,
+    required String country,
+
+    required String password,
+    required onSuccess,
+    required onError,
+  }) async {
+    final dioManager = ref.read(dioManagerProvider);
+    final response = await dioManager.dioPost(
+      url: ConstanceNetwork.register,
+      body: {
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'country': country,
+        'type': '0',
+        'password': password,
+      },
+    );
+    if (response.statusCode == 200) {
+      return onSuccess(response.data);
+    } else {
+      return onError(response.data);
+    }
+  }
+
+  @override
+  Future verifyEmail({
+    required WidgetRef ref,
+    required String otp,
+    required onSuccess,
+    required onError,
+  }) async {
+    final dioManager = ref.read(dioManagerProvider);
+    final response = await dioManager.dioPost(
+      url: ConstanceNetwork.verifyEmail,
+      body: {'otp': otp},
+    );
+    if (response.statusCode == 200) {
+      return onSuccess(response.data);
+    } else {
+      return onError(response.data);
+    }
+  }
 }

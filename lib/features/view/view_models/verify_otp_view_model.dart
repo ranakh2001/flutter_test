@@ -26,6 +26,26 @@ class VerifyOtpViewModel extends StateNotifier<VerifyOtpState> {
       },
     );
   }
+
+  // email verify
+  Future emailVerify(WidgetRef ref, BuildContext context) async {
+    final otp = ref.read(otpProvider);
+    state = state.copyWith(isLoading: true, error: null);
+
+    await AuthApi().verifyEmail(
+      ref: ref,
+      otp: otp,
+      onSuccess: (data) {
+        state = state.copyWith(isLoading: false, error: null);
+        showSnackBar(context, '${data['message']}');
+        Navigator.pushNamed(context, Routers.login);
+      },
+      onError: (error) {
+        state = state.copyWith(isLoading: false, error: error);
+        showSnackBar(context, '${error['message']}', isError: true);
+      },
+    );
+  }
 }
 
 class VerifyOtpState {

@@ -42,6 +42,12 @@ class RegisterForm extends ConsumerWidget {
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
+                  controller: rigesterViewModel.contryController,
+                  title: "Country",
+                  validator: Validators.emailValidator,
+                ),
+                SizedBox(height: 16.h),
+                CustomTextField(
                   controller: rigesterViewModel.passwordController,
                   title: "Password",
                   visible: registerState.visible,
