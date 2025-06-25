@@ -1,6 +1,9 @@
 class Validators {
   // Empty validator
-  static String? emptyValidator(String? value, {String fieldName = "This field"}) {
+  static String? emptyValidator(
+    String? value, {
+    String fieldName = "This field",
+  }) {
     if (value == null || value.trim().isEmpty) {
       return "$fieldName is required";
     }
@@ -28,16 +31,19 @@ class Validators {
       return "Password must be at least 8 characters";
     }
 
-    final pattern = r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$';
-    final regExp = RegExp(pattern);
-    if (!regExp.hasMatch(value)) {
-      return 'Password must contain letters and numbers';
-    }
+    // final pattern = r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$';
+    // final regExp = RegExp(pattern);
+    // if (!regExp.hasMatch(value)) {
+    //   return 'Password must contain letters and numbers';
+    // }
     return null;
   }
 
-  // Confirm Password validator 
-  static String? confirmPasswordValidator(String? value, String? originalPassword) {
+  // Confirm Password validator
+  static String? confirmPasswordValidator(
+    String? value,
+    String? originalPassword,
+  ) {
     final emptyCheck = emptyValidator(value, fieldName: "Confirm Password");
     if (emptyCheck != null) return emptyCheck;
 

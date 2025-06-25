@@ -14,4 +14,6 @@ class Routers {
   static const String verifyOtp = "/verifyOtp";
 
   static const String restPassword = "/resetPassword";
+
+  static const String home = "/home";
 }

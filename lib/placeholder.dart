@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test1/features/providers/shared_prefs_provider.dart';
 import 'package:flutter_test1/features/view/auth/login_screen.dart';
 import 'package:flutter_test1/features/view/auth/onboarding.dart';
+import 'package:flutter_test1/features/view/home/home.dart';
 
 class PlaceHolder extends ConsumerWidget {
   const PlaceHolder({super.key});
@@ -12,8 +13,10 @@ class PlaceHolder extends ConsumerWidget {
     final pref = ref.watch(sharedPrefSettings);
     if (!pref.isFirstTime) {
       return Onboarding();
-    } else {
+    } else if (!pref.isLoggedIn) {
       return LoginScreen();
+    } else {
+      return Home();
     }
   }
 }

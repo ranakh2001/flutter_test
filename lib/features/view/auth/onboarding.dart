@@ -61,7 +61,7 @@ class Onboarding extends ConsumerWidget {
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, Routers.login);
                     sharedPref.setFirstTime();
-                    print("First time: ${sharedPref.isFirstTime}");
+                    
                   },
                 ),
                 SizedBox(height: 16.h),

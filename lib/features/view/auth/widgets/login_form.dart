@@ -11,28 +11,33 @@ class LoginForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authmodel = ref.watch(authProvider.notifier);
-    final authState = ref.watch(authProvider);
+    final loginViewModel = ref.watch(loginProvider.notifier);
+    final loginState = ref.watch(loginProvider);
     return Form(
-      key: authmodel.loginFormKey,
+      key: loginViewModel.loginKey,
       child: Column(
         children: [
           CustomTextField(
-            controller: authmodel.emailController,
+            controller: loginViewModel.emailController,
             title: "Email",
             validator: Validators.emailValidator,
           ),
           SizedBox(height: 24.h),
           CustomTextField(
-            controller: authmodel.passwordController,
+            controller: loginViewModel.passwordController,
             title: "Password",
             validator: Validators.passwordValidator,
             isPassword: true,
-            visible: authState.visible,
-            onVisibilityToggle: authmodel.togglePasswordVisibility,
+            visible: loginState.visible,
+            onVisibilityToggle: loginViewModel.togglePasswordVisibility,
           ),
           SizedBox(height: 24.h),
-          CustomButton(title: "Login", onPressed: () {}),
+          CustomButton(
+            title: "Login",
+            onPressed: () {
+              loginViewModel.login(ref, context);
+            },
+          ),
         ],
       ),
     );

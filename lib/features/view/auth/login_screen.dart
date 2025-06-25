@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
 import 'package:flutter_test1/features/view/auth/widgets/login_form.dart';
 import 'package:flutter_test1/features/view/auth/widgets/login_with_other.dart';
 import 'package:flutter_test1/utils/router/routers.dart';
@@ -11,8 +10,9 @@ class LoginScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authmodel = ref.watch(authProvider.notifier);
+    
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
@@ -29,7 +29,6 @@ class LoginScreen extends ConsumerWidget {
                 ),
                 SizedBox(height: 52.h),
                 LoginForm(),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -57,7 +56,6 @@ class LoginScreen extends ConsumerWidget {
                     TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, Routers.register);
-                        authmodel.toggleMode(); // Toggle to register mode
                       },
                       child: Text(
                         'Sign Up',

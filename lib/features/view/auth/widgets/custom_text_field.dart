@@ -8,8 +8,9 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     required this.title,
     this.isPassword = false,
-     this.visible = false,
-     this.onVisibilityToggle,  this.keyboardType = TextInputType.text,
+    this.visible = false,
+    this.onVisibilityToggle,
+    this.keyboardType = TextInputType.text,
   });
 
   final TextEditingController controller;
@@ -35,6 +36,7 @@ class CustomTextField extends StatelessWidget {
         TextFormField(
           controller: controller,
           keyboardType: keyboardType,
+          
           obscureText: isPassword ? visible : false,
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(

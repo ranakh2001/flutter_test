@@ -12,57 +12,70 @@ class ResetPassword extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authmodel = ref.watch(authProvider.notifier);
-    final authState = ref.watch(authProvider);
+    final resetPasswordViewModel = ref.watch(resetPasswordProvider.notifier);
+    final resetPasswordState = ref.watch(resetPasswordProvider);
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: CustomAppBar(title: "Create new password"),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text(
-                "Your new password must be diffrent from your old password",
-                style: Theme.of(context).textTheme.bodySmall,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-              ),
-              SizedBox(height: 24.h),
-              CustomTextField(
-                controller: authmodel.passwordController,
-                title: "New Password",
-                isPassword: true,
-                visible: authState.visible,
-                validator: Validators.passwordValidator,
-              ),
-              SizedBox(height: 8.h),
-              Text(
-                "Password must have at least 6-12 character,a number and special character",
-                style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
+          child: Form(
+            key: resetPasswordViewModel.resetPasswordKey,
+            child: Column(
+              children: [
+                Text(
+                  "Your new password must be diffrent from your old password",
+                  style: Theme.of(context).textTheme.bodySmall,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-              ),
-              SizedBox(height: 16.h),
-              CustomTextField(
-                controller: authmodel.confirmPasswordController,
-                title: "Confirm New Password",
-                isPassword: true,
-                visible: authState.visible,
-                validator: Validators.passwordValidator,
-              ),
-              Text(
-                "Password must have at least 6-12 character,a number and special character",
-                style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
+                SizedBox(height: 24.h),
+                CustomTextField(
+                  controller: resetPasswordViewModel.passwordController,
+                  title: "New Password",
+                  isPassword: true,
+                  visible: resetPasswordState.visible,
+                  onVisibilityToggle:
+                      resetPasswordViewModel.togglePasswordVisibility,
+                  validator: Validators.passwordValidator,
                 ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-              ),
-              SizedBox(height: 16.h),
-              CustomButton(title: "Reset Password", onPressed: () {}),
-            ],
+                SizedBox(height: 8.h),
+                Text(
+                  "Password must have at least 6-12 character,a number and special character",
+                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+                SizedBox(height: 16.h),
+                CustomTextField(
+                  controller: resetPasswordViewModel.confirmPasswordController,
+                  title: "Confirm New Password",
+                  isPassword: true,
+                  visible: resetPasswordState.visible,
+                  onVisibilityToggle:
+                      resetPasswordViewModel.togglePasswordVisibility,
+                  validator: Validators.passwordValidator,
+                ),
+                Text(
+                  "Password must have at least 6-12 character,a number and special character",
+                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
+                SizedBox(height: 16.h),
+                CustomButton(
+                  title: "Reset Password",
+                  onPressed: () {
+                    resetPasswordViewModel.resetPassword(ref, context);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

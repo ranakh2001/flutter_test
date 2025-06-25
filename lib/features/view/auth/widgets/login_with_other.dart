@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_test1/features/providers/auth_provider.dart';
 import 'package:flutter_test1/features/view/auth/widgets/custom_outline_button.dart';
 import 'package:flutter_test1/utils/constants/const_svgs.dart';
 
-class LoginWithOther extends StatelessWidget {
+class LoginWithOther extends ConsumerWidget {
   const LoginWithOther({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final loginViewModel = ref.watch(loginProvider.notifier);
     return Column(
       children: [
         Row(
@@ -33,7 +36,9 @@ class LoginWithOther extends StatelessWidget {
         SizedBox(height: 16.h),
         CustomOutlineButton(
           iconPath: ConstSvgs.googleIcon,
-          onPressed: () {},
+          onPressed: () {
+            loginViewModel.signInWithGoogle();
+          },
           title: "Login with Google",
         ),
         SizedBox(height: 16.h),

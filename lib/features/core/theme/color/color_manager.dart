@@ -10,4 +10,5 @@ class ColorManager {
   final Color backgroundColor = const Color(0xffFFFFFF);
   final Color transparent = const Color(0x00000000);
   final Color redError = const Color(0xffFF0000);
+  final Color greenSuccess = const Color(0xff28A745);
 }

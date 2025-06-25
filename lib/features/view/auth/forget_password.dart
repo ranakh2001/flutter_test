@@ -5,7 +5,6 @@ import 'package:flutter_test1/features/providers/auth_provider.dart';
 import 'package:flutter_test1/features/view/auth/widgets/custom_button.dart';
 import 'package:flutter_test1/features/view/auth/widgets/custom_text_field.dart';
 import 'package:flutter_test1/features/view/widgets/custom_app_bar.dart';
-import 'package:flutter_test1/utils/router/routers.dart';
 import 'package:flutter_test1/utils/utils/validators.dart';
 
 class ForgetPassword extends ConsumerWidget {
@@ -13,7 +12,7 @@ class ForgetPassword extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authmodel = ref.watch(authProvider.notifier);
+    final forgetPasswordViewModel = ref.watch(forgetPasswordProvider.notifier);
 
     return Scaffold(
       appBar: CustomAppBar(title: "Forget Password"),
@@ -29,11 +28,11 @@ class ForgetPassword extends ConsumerWidget {
             ),
             SizedBox(height: 24.h),
             Form(
-              key: authmodel.forgetPasswordKey,
+              key: forgetPasswordViewModel.forgetPasswordKey,
               child: Column(
                 children: [
                   CustomTextField(
-                    controller: authmodel.emailController,
+                    controller: forgetPasswordViewModel.emailController,
                     title: "Email - phone number",
                     validator: Validators.emailValidator,
                   ),
@@ -41,7 +40,7 @@ class ForgetPassword extends ConsumerWidget {
                   CustomButton(
                     title: "Submit",
                     onPressed: () {
-                      Navigator.pushNamed(context, Routers.verifyOtp);
+                      forgetPasswordViewModel.sendOtp(ref, context);
                     },
                   ),
                 ],

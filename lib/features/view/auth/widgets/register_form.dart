@@ -11,60 +11,60 @@ class RegisterForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authmodel = ref.watch(authProvider.notifier);
-    final authState = ref.watch(authProvider);
+    final rigesterViewModel = ref.watch(registerProvider.notifier);
+    final registerState = ref.watch(registerProvider);
     return SingleChildScrollView(
       child: Column(
         children: [
           SizedBox(height: 24),
           Form(
-            key: authmodel.registerFormKey,
+            key: rigesterViewModel.registerKey,
             child: Column(
               children: [
                 CustomTextField(
-                  controller: authmodel.usernameController,
+                  controller: rigesterViewModel.usernameController,
                   title: "User name",
                   validator: Validators.usernameValidator,
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
-                  controller: authmodel.phoneController,
+                  controller: rigesterViewModel.phoneController,
                   title: "Phone number",
                   keyboardType: TextInputType.phone,
                   validator: Validators.phoneValidator,
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
-                  controller: authmodel.emailController,
+                  controller: rigesterViewModel.emailController,
                   title: "Email",
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.emailValidator,
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
-                  controller: authmodel.passwordController,
+                  controller: rigesterViewModel.passwordController,
                   title: "Password",
-                  visible: authState.visible,
+                  visible: registerState.visible,
                   isPassword: true,
                   validator: Validators.passwordValidator,
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
-                  controller: authmodel.confirmPasswordController,
+                  controller: rigesterViewModel.confirmPasswordController,
                   title: "Confirm password",
-                  visible: authState.visible,
+                  visible: registerState.visible,
                   isPassword: true,
                   validator: (value) {
                     return Validators.confirmPasswordValidator(
                       value,
-                      authmodel.passwordController.text,
+                      rigesterViewModel.passwordController.text,
                     );
                   },
                 ),
                 SizedBox(height: 8.h),
                 CheckboxListTile(
-                  value: authState.agreeTerms,
-                  onChanged: (_) => authmodel.toggleAgreeTerms(),
+                  value: registerState.agreeTerms,
+                  onChanged: (_) => rigesterViewModel.toggleAgreeTerms(),
                   activeColor: Theme.of(context).primaryColor,
                   title: Text(
                     "I agree to the Terms & Conditions and Privacy Policy of DOOS DOOS.",

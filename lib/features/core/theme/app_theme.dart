@@ -57,25 +57,25 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextManager.headline6.copyWith(
-          color: ColorManager.instance.backgroundColor,
+          color: ColorManager.instance.primaryColor,
           fontWeight: FontWeight.w500,
         ),
         labelStyle: AppTextTheme.textAppTheme.titleMedium?.copyWith(
-          color: ColorManager.instance.backgroundColor,
+          color: ColorManager.instance.primaryColor,
           fontWeight: FontWeight.w500,
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 28),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.r8),
-          borderSide: BorderSide(color: ColorManager.instance.backgroundColor),
+          borderSide: BorderSide(color: ColorManager.instance.secondaryColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.r8),
-          borderSide: BorderSide(color: ColorManager.instance.backgroundColor),
+          borderSide: BorderSide(color: ColorManager.instance.secondaryColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.r8),
-          borderSide: BorderSide(color: ColorManager.instance.secondaryColor),
+          borderSide: BorderSide(color: ColorManager.instance.primaryColor),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppSize.r8),
