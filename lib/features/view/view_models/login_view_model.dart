@@ -1,11 +1,12 @@
+import 'package:doos_doos/features/model/models/user.dart';
+import 'package:doos_doos/features/providers/shared_prefs_provider.dart';
+import 'package:doos_doos/features/view/widgets/show_snackbar.dart';
+import 'package:doos_doos/network/api/auth_api.dart';
+import 'package:doos_doos/utils/router/routers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/model/models/user.dart';
-import 'package:flutter_test1/features/providers/shared_prefs_provider.dart';
-import 'package:flutter_test1/features/view/widgets/show_snackbar.dart';
-import 'package:flutter_test1/network/api/auth_api.dart';
-import 'package:flutter_test1/utils/router/routers.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginViewModel extends StateNotifier<LoginState> {

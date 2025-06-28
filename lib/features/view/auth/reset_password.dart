@@ -1,11 +1,12 @@
+import 'package:doos_doos/features/providers/auth_provider.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_button.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_text_field.dart';
+import 'package:doos_doos/features/view/widgets/custom_app_bar.dart';
+import 'package:doos_doos/l10n/app_localizations.dart';
+import 'package:doos_doos/utils/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_button.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_text_field.dart';
-import 'package:flutter_test1/features/view/widgets/custom_app_bar.dart';
-import 'package:flutter_test1/utils/utils/validators.dart';
 
 class ResetPassword extends ConsumerWidget {
   const ResetPassword({super.key});
@@ -16,7 +17,9 @@ class ResetPassword extends ConsumerWidget {
     final resetPasswordState = ref.watch(resetPasswordProvider);
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: CustomAppBar(title: "Create new password"),
+      appBar: CustomAppBar(
+        title: AppLocalizations.of(context)!.createNewPassword,
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
         child: SingleChildScrollView(
@@ -25,7 +28,7 @@ class ResetPassword extends ConsumerWidget {
             child: Column(
               children: [
                 Text(
-                  "Your new password must be diffrent from your old password",
+                  AppLocalizations.of(context)!.newPassCondition,
                   style: Theme.of(context).textTheme.bodySmall,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
@@ -33,7 +36,7 @@ class ResetPassword extends ConsumerWidget {
                 SizedBox(height: 24.h),
                 CustomTextField(
                   controller: resetPasswordViewModel.passwordController,
-                  title: "New Password",
+                  title: AppLocalizations.of(context)!.newPassword,
                   isPassword: true,
                   visible: resetPasswordState.visible,
                   onVisibilityToggle:
@@ -42,7 +45,7 @@ class ResetPassword extends ConsumerWidget {
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  "Password must have at least 6-12 character,a number and special character",
+                  AppLocalizations.of(context)!.passwordValidations,
                   style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
@@ -52,7 +55,7 @@ class ResetPassword extends ConsumerWidget {
                 SizedBox(height: 16.h),
                 CustomTextField(
                   controller: resetPasswordViewModel.confirmPasswordController,
-                  title: "Confirm New Password",
+                  title: AppLocalizations.of(context)!.confirmNewPassword,
                   isPassword: true,
                   visible: resetPasswordState.visible,
                   onVisibilityToggle:
@@ -60,7 +63,7 @@ class ResetPassword extends ConsumerWidget {
                   validator: Validators.passwordValidator,
                 ),
                 Text(
-                  "Password must have at least 6-12 character,a number and special character",
+                  AppLocalizations.of(context)!.passwordValidations,
                   style: Theme.of(context).textTheme.labelMedium!.copyWith(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
@@ -69,7 +72,7 @@ class ResetPassword extends ConsumerWidget {
                 ),
                 SizedBox(height: 16.h),
                 CustomButton(
-                  title: "Reset Password",
+                  title: AppLocalizations.of(context)!.resetPassword,
                   onPressed: () {
                     resetPasswordViewModel.resetPassword(ref, context);
                   },

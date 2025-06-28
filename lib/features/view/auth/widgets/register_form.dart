@@ -1,10 +1,11 @@
+import 'package:doos_doos/features/providers/auth_provider.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_button.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_text_field.dart';
+import 'package:doos_doos/l10n/app_localizations.dart';
+import 'package:doos_doos/utils/utils/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_button.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_text_field.dart';
-import 'package:flutter_test1/utils/utils/validators.dart';
 
 class RegisterForm extends ConsumerWidget {
   const RegisterForm({super.key});
@@ -23,33 +24,28 @@ class RegisterForm extends ConsumerWidget {
               children: [
                 CustomTextField(
                   controller: rigesterViewModel.usernameController,
-                  title: "User name",
+                  title: AppLocalizations.of(context)!.userName,
                   validator: Validators.usernameValidator,
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
                   controller: rigesterViewModel.phoneController,
-                  title: "Phone number",
+                  title: AppLocalizations.of(context)!.phoneNumber,
                   keyboardType: TextInputType.phone,
                   validator: Validators.phoneValidator,
                 ),
                 SizedBox(height: 16.h),
                 CustomTextField(
                   controller: rigesterViewModel.emailController,
-                  title: "Email",
+                  title: AppLocalizations.of(context)!.email,
                   keyboardType: TextInputType.emailAddress,
                   validator: Validators.emailValidator,
                 ),
                 SizedBox(height: 16.h),
-                CustomTextField(
-                  controller: rigesterViewModel.contryController,
-                  title: "Country",
-                  validator: Validators.emailValidator,
-                ),
-                SizedBox(height: 16.h),
+
                 CustomTextField(
                   controller: rigesterViewModel.passwordController,
-                  title: "Password",
+                  title: AppLocalizations.of(context)!.password,
                   visible: registerState.visible,
                   isPassword: true,
                   validator: Validators.passwordValidator,
@@ -57,7 +53,7 @@ class RegisterForm extends ConsumerWidget {
                 SizedBox(height: 16.h),
                 CustomTextField(
                   controller: rigesterViewModel.confirmPasswordController,
-                  title: "Confirm password",
+                  title: AppLocalizations.of(context)!.confirmPassword,
                   visible: registerState.visible,
                   isPassword: true,
                   validator: (value) {
@@ -80,7 +76,12 @@ class RegisterForm extends ConsumerWidget {
                   contentPadding: EdgeInsets.zero,
                 ),
                 SizedBox(height: 16.h),
-                CustomButton(title: "Sign Up", onPressed: () {}),
+                CustomButton(
+                  title: AppLocalizations.of(context)!.signUp,
+                  onPressed: () {
+                    rigesterViewModel.register(ref, context);
+                  },
+                ),
               ],
             ),
           ),

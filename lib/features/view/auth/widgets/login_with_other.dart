@@ -1,9 +1,10 @@
+import 'package:doos_doos/features/providers/auth_provider.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_outline_button.dart';
+import 'package:doos_doos/l10n/app_localizations.dart';
+import 'package:doos_doos/utils/constants/const_svgs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_outline_button.dart';
-import 'package:flutter_test1/utils/constants/const_svgs.dart';
 
 class LoginWithOther extends ConsumerWidget {
   const LoginWithOther({super.key});
@@ -21,7 +22,7 @@ class LoginWithOther extends ConsumerWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Text(
-                "Or",
+                AppLocalizations.of(context)!.or,
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Theme.of(context).colorScheme.secondary,
                   fontWeight: FontWeight.w500,
@@ -37,21 +38,21 @@ class LoginWithOther extends ConsumerWidget {
         CustomOutlineButton(
           iconPath: ConstSvgs.googleIcon,
           onPressed: () {
-            loginViewModel.signInWithGoogle();
+            // loginViewModel.signInWithGoogle();
           },
-          title: "Login with Google",
+          title: AppLocalizations.of(context)!.loginWithGoogle,
         ),
         SizedBox(height: 16.h),
         CustomOutlineButton(
           iconPath: ConstSvgs.facebookIcon,
           onPressed: () {},
-          title: "Login with Facebook",
+          title: AppLocalizations.of(context)!.loginWithFacebook,
         ),
         SizedBox(height: 16.h),
         CustomOutlineButton(
           iconPath: ConstSvgs.phoneIcon,
           onPressed: () {},
-          title: "Login with Phone",
+          title: AppLocalizations.of(context)!.loginWithPhone,
         ),
       ],
     );

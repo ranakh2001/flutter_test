@@ -1,9 +1,10 @@
+import 'package:doos_doos/features/providers/splash_provider.dart';
+import 'package:doos_doos/utils/constants/const_images.dart';
+import 'package:doos_doos/utils/router/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/providers/splash_provider.dart';
-import 'package:flutter_test1/utils/constants/const_images.dart';
-import 'package:flutter_test1/utils/router/routers.dart';
+
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

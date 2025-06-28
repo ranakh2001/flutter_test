@@ -1,4 +1,4 @@
-import 'package:flutter_test1/utils/constants/constants.dart';
+import 'package:doos_doos/utils/constants/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefSettings {
@@ -16,7 +16,7 @@ class SharedPrefSettings {
   static const _isLoggedInKey = 'isLoggedIn';
 
   //is first time open app
-  bool get isFirstTime => _prefs.getBool(_isFirstTimeKey) ?? true;
+  bool get isFirstTime => _prefs.getBool(_isFirstTimeKey) ?? false;
   Future<void> setFirstTime() => _prefs.setBool(_isFirstTimeKey, true);
 
   // language code

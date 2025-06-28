@@ -1,6 +1,7 @@
+import 'package:doos_doos/features/model/enums/token_type.dart';
+import 'package:doos_doos/features/providers/shared_prefs_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/model/enums/token_type.dart';
-import 'package:flutter_test1/features/providers/shared_prefs_provider.dart';
+
 
 abstract class ConstanceNetwork {
   static const String baseUrl = 'https://highleveltecknology.com/doos/api/';

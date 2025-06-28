@@ -1,10 +1,9 @@
+import 'package:doos_doos/features/providers/auth_provider.dart';
+import 'package:doos_doos/features/view/widgets/show_snackbar.dart';
+import 'package:doos_doos/network/api/auth_api.dart';
+import 'package:doos_doos/utils/router/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
-import 'package:flutter_test1/features/view/widgets/show_snackbar.dart';
-import 'package:flutter_test1/network/api/auth_api.dart';
-import 'package:flutter_test1/utils/router/routers.dart';
-
 
 class ResetPasswordViewModel extends StateNotifier<ResetPasswordState> {
   ResetPasswordViewModel() : super(const ResetPasswordState());
@@ -21,7 +20,6 @@ class ResetPasswordViewModel extends StateNotifier<ResetPasswordState> {
   void togglePasswordVisibility() {
     state = state.copyWith(visible: !state.visible);
   }
-
 
   Future resetPassword(WidgetRef ref, BuildContext context) async {
     if (!resetPasswordKey.currentState!.validate()) return;
@@ -66,11 +64,7 @@ class ResetPasswordState {
     this.visible = false,
   });
 
-  ResetPasswordState copyWith({
-    bool? isLoading,
-    String? error,
-    bool? visible,
-  }) {
+  ResetPasswordState copyWith({bool? isLoading, String? error, bool? visible}) {
     return ResetPasswordState(
       isLoading: isLoading ?? this.isLoading,
       error: error ?? this.error,

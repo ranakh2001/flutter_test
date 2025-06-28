@@ -1,10 +1,11 @@
 
+import 'package:doos_doos/features/core/theme/color/color_manager.dart';
+import 'package:doos_doos/features/core/theme/size/app_size.dart';
+import 'package:doos_doos/features/core/theme/text_theme/text_font_size.dart';
+import 'package:doos_doos/features/core/theme/text_theme/text_manager.dart';
+import 'package:doos_doos/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test1/features/core/theme/color/color_manager.dart';
-import 'package:flutter_test1/features/core/theme/size/app_size.dart';
-import 'package:flutter_test1/features/core/theme/text_theme/text_font_size.dart';
-import 'package:flutter_test1/features/core/theme/text_theme/text_manager.dart';
-import 'package:flutter_test1/utils/constants/constants.dart';
+
 
 
 class AppButtonTheme {
@@ -22,7 +23,7 @@ class AppButtonTheme {
           ),
           minimumSize: const Size(double.infinity, 48),
           textStyle: TextStyle(
-            fontFamily: Constants.fontFamily,
+            fontFamily: Constants.montserratFont,
             color: ColorManager.instance.backgroundColor,
             fontSize: TextFontSize.fontSize16,
             fontWeight: FontWeight.bold,
@@ -66,7 +67,7 @@ class AppButtonTheme {
           minimumSize: Size(double.infinity, AppSize.h44),
           textStyle: TextStyle(
             fontSize: TextFontSize.fontSize12,
-            fontFamily: Constants.fontFamily,
+            fontFamily: Constants.montserratFont,
           ));
 
   TextButtonThemeData get textButtonStyle => TextButtonThemeData(
@@ -74,7 +75,7 @@ class AppButtonTheme {
           foregroundColor: ColorManager.instance.primaryColor,
           backgroundColor: ColorManager.instance.transparent,
           textStyle: TextStyle(
-            fontFamily: Constants.fontFamily,
+            fontFamily: Constants.montserratFont,
             color: ColorManager.instance.primaryColor,
             fontSize: TextFontSize.fontSize16,
           ),

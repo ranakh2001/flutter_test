@@ -30,6 +30,8 @@ class CustomButton extends StatelessWidget {
       child: Text(
         title,
         style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          fontSize: 16.sp,
+          fontWeight: FontWeight.w500,
           color: isOnboarding
               ? Theme.of(context).primaryColor
               : Theme.of(context).scaffoldBackgroundColor,

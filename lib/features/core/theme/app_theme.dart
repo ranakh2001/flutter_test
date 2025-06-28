@@ -1,12 +1,13 @@
+import 'package:doos_doos/features/core/theme/button_theme/app_button_theme.dart';
+import 'package:doos_doos/features/core/theme/color/color_manager.dart';
+import 'package:doos_doos/features/core/theme/size/app_size.dart';
+import 'package:doos_doos/features/core/theme/text_theme/text_font_size.dart';
+import 'package:doos_doos/features/core/theme/text_theme/text_manager.dart';
+import 'package:doos_doos/features/core/theme/text_theme/text_theme.dart';
+import 'package:doos_doos/utils/constants/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_test1/features/core/theme/button_theme/app_button_theme.dart';
-import 'package:flutter_test1/features/core/theme/color/color_manager.dart';
-import 'package:flutter_test1/features/core/theme/size/app_size.dart';
-import 'package:flutter_test1/features/core/theme/text_theme/text_manager.dart';
-import 'package:flutter_test1/features/core/theme/text_theme/text_theme.dart';
-import 'package:flutter_test1/utils/constants/constants.dart';
 
 class AppTheme {
   static AppTheme inatance = AppTheme._internal();
@@ -25,7 +26,7 @@ class AppTheme {
         secondary: ColorManager.instance.secondaryColor,
         error: ColorManager.instance.redError,
       ),
-      fontFamily: Constants.fontFamily,
+      fontFamily: Constants.montserratFont,
       cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
         primaryColor: ColorManager.instance.primaryColor,
         primaryContrastingColor: ColorManager.instance.primaryColor,
@@ -86,20 +87,21 @@ class AppTheme {
           borderSide: BorderSide(color: ColorManager.instance.redError),
         ),
       ),
-      // bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      //   type: BottomNavigationBarType.fixed,
-      //   backgroundColor: ColorManager.instance.bottomNavigationBackgroundColor,
-      //   selectedItemColor: ColorManager.instance.primaryColor,
-      //   unselectedItemColor: ColorManager.instance.secondaryColor,
-      //   selectedLabelStyle: TextManager.headline6.copyWith(
-      //     color: ColorManager.instance.primaryColor,
-      //     fontSize: TextFontSize.fontSize12,
-      //   ),
-      //   unselectedLabelStyle: TextManager.headline6.copyWith(
-      //     color: ColorManager.instance.secondaryColor,
-      //     fontSize: TextFontSize.fontSize1,
-      //   ),
-      // ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: ColorManager.instance.primaryColor,
+        selectedItemColor: ColorManager.instance.backgroundColor,
+        unselectedItemColor: ColorManager.instance.backgroundColor,
+        selectedLabelStyle: TextManager.headline6.copyWith(
+          color: ColorManager.instance.backgroundColor,
+          fontSize: TextFontSize.fontSize12,
+          decoration: TextDecoration.underline,
+        ),
+        unselectedLabelStyle: TextManager.headline6.copyWith(
+          color: ColorManager.instance.secondaryColor,
+          fontSize: TextFontSize.fontSize1,
+        ),
+      ),
       popupMenuTheme: PopupMenuThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.r12),

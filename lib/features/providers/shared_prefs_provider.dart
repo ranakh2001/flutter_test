@@ -1,5 +1,5 @@
+import 'package:doos_doos/utils/shared/shared_pref_settings.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/utils/shared/shared_pref_settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 

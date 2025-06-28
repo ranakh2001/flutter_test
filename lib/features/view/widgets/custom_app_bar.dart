@@ -1,6 +1,7 @@
+import 'package:doos_doos/features/core/theme/color/color_manager.dart';
+import 'package:doos_doos/features/view/widgets/back_button.dart';
+import 'package:doos_doos/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test1/features/core/theme/color/color_manager.dart';
-import 'package:flutter_test1/features/view/widgets/back_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key, required this.title});
@@ -15,14 +16,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         title,
-        style: Theme.of(
-          context,
-        ).textTheme.headlineMedium!.copyWith(fontWeight: FontWeight.w500),
+        style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+          fontWeight: FontWeight.w700,
+          fontFamily: Constants.cormorantFont,
+        ),
       ),
     );
   }
 
-  // هذا الجزء مطلوب من PreferredSizeWidget
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

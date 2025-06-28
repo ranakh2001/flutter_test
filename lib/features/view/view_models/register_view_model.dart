@@ -1,7 +1,8 @@
+import 'package:doos_doos/features/view/widgets/show_snackbar.dart';
+import 'package:doos_doos/network/api/auth_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/view/widgets/show_snackbar.dart';
-import 'package:flutter_test1/network/api/auth_api.dart';
+
 
 class RegisterViewModel extends StateNotifier<RegisterState> {
   RegisterViewModel() : super(const RegisterState());
@@ -52,7 +53,7 @@ class RegisterViewModel extends StateNotifier<RegisterState> {
       },
       onError: (error) {
         state = state.copyWith(isLoading: false);
-        showSnackBar(context, 'something went wrong');
+        showSnackBar(context, 'something went wrong', isError: true);
       },
     );
   }

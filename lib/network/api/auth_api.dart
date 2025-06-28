@@ -1,7 +1,7 @@
+import 'package:doos_doos/features/providers/dio_manager_provider.dart';
+import 'package:doos_doos/network/constance_network/constance_network.dart';
+import 'package:doos_doos/network/helper/auth_helper.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/providers/dio_manager_provider.dart';
-import 'package:flutter_test1/network/constance_network/constance_network.dart';
-import 'package:flutter_test1/network/helper/auth_helper.dart';
 
 class AuthApi extends AuthHelper {
   /// Singleton instance

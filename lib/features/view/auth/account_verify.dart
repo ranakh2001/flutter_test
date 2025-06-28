@@ -1,9 +1,10 @@
+import 'package:doos_doos/features/providers/auth_provider.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_button.dart';
+import 'package:doos_doos/features/view/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_button.dart';
-import 'package:flutter_test1/features/view/widgets/custom_app_bar.dart';
+
 
 import 'package:pin_code_fields/pin_code_fields.dart';
 

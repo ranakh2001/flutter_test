@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:doos_doos/features/model/enums/token_type.dart';
+import 'package:doos_doos/network/constance_network/constance_network.dart';
+import 'package:doos_doos/network/dio_manager/api_inspectors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_test1/features/model/enums/token_type.dart';
-import 'package:flutter_test1/network/dio_manager/api_inspectors.dart';
-import 'package:flutter_test1/network/constance_network/constance_network.dart';
+
 import 'package:logger/logger.dart';
 
 class DioManager {

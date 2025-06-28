@@ -21,7 +21,7 @@ class CustomOutlineButton extends StatelessWidget {
           width: 2.w,
         ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24.r),
+          borderRadius: BorderRadius.circular(50.r),
         ),
         minimumSize: Size(double.infinity, 48.h),
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
@@ -36,6 +36,7 @@ class CustomOutlineButton extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
               color: Theme.of(context).colorScheme.primary,
+              fontSize: 15.sp,
             ),
           ),
         ],

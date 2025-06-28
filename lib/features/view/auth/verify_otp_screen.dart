@@ -1,9 +1,10 @@
+import 'package:doos_doos/features/providers/auth_provider.dart';
+import 'package:doos_doos/features/view/auth/widgets/custom_button.dart';
+import 'package:doos_doos/features/view/widgets/custom_app_bar.dart';
+import 'package:doos_doos/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_test1/features/providers/auth_provider.dart';
-import 'package:flutter_test1/features/view/auth/widgets/custom_button.dart';
-import 'package:flutter_test1/features/view/widgets/custom_app_bar.dart';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -14,21 +15,21 @@ class VerifyOtpScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final verifyOtpViewModel = ref.watch(verifyOtpProvider.notifier);
     return Scaffold(
-      appBar: CustomAppBar(title: "OTP Verification"),
+      appBar: CustomAppBar(title: AppLocalizations.of(context)!.verifyOtp),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Verify your account",
+              AppLocalizations.of(context)!.verifyAccount,
               style: Theme.of(
                 context,
               ).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 16.h),
             Text(
-              "We sent Email with 6-digit OTP Verification Code to +1234567898",
+              "${AppLocalizations.of(context)!.otpSent} +1234567898",
               style: Theme.of(context).textTheme.bodySmall,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
@@ -69,7 +70,7 @@ class VerifyOtpScreen extends ConsumerWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Resend Code",
+                    AppLocalizations.of(context)!.resendCode,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       decoration: TextDecoration.underline,
                     ),
@@ -79,7 +80,7 @@ class VerifyOtpScreen extends ConsumerWidget {
             ),
             SizedBox(height: 24.h),
             CustomButton(
-              title: "Submit",
+              title: AppLocalizations.of(context)!.submit,
               onPressed: () {
                 verifyOtpViewModel.verifyOtp(ref, context);
               },

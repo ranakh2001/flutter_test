@@ -1,7 +1,8 @@
 
+import 'package:doos_doos/features/core/theme/color/color_manager.dart';
+import 'package:doos_doos/features/core/theme/text_theme/text_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test1/features/core/theme/color/color_manager.dart';
-import 'package:flutter_test1/features/core/theme/text_theme/text_manager.dart';
+
 
 abstract class AppTextTheme {
   static TextTheme textAppTheme = TextTheme(
